@@ -18,6 +18,19 @@ export const SidebarMenu = [
     label: "Prediction",
     path: "/predict",
     icon: Activity,
+// menambahkan submenu untuk prediction
+     children: [
+      {
+        label: "Model Accuracy",
+        path: "/predict/model-accuracy",
+        icon: Layers,
+      },
+      {
+        label: "Model Loss",
+        path: "/predict/model-loss",
+        icon: Layers,
+      },
+    ]
   },
   {
     label: "Data Distribution",
