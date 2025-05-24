@@ -1,7 +1,7 @@
 export default function Summary2Class() {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-pink-200">
-      <div className="bg-pink-100 p-6 rounded-lg shadow-md w-full max-w-md">
+    <div className="flex justify-center items-center min-h-screen"> {/* bg putih DIHAPUS */}
+      <div className="p-10 rounded-xl shadow-lg max-w-full w-full flex justify bg-white"> {/* bg putih HANYA di tabel */}
         <table className="w-full text-center border-collapse">
           <thead>
             <tr>

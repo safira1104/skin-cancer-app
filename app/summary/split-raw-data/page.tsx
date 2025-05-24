@@ -4,9 +4,9 @@ import React from 'react';
 
 export default function SplitRawDataPage() {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-pink-300 p-8 rounded-lg shadow-md">
-        <table className="table-auto border-collapse border border-pink-500 text-center text-pink-600 bg-pink-100">
+    <div className="flex justify-center items-center min-h-screen"> {/* bg putih DIHAPUS */}
+      <div className="p-10 rounded-xl shadow-lg max-w-full w-full flex justify bg-white"> {/* bg putih HANYA di tabel */}
+        <table className="w-full text-center border-collapse">
           <thead>
             <tr className="bg-pink-100">
               <th className="border border-pink-500 px-4 py-2">Skin Lesion</th>

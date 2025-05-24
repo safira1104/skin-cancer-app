@@ -8,9 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex">
+      <body className="min-h-screen flex bg-rose-300">
         <Sidebar />
-        <main className="flex-1 min-h-screen p-6 ml-[250px]">
+        <main>
           {children}
         </main>
       </body>
