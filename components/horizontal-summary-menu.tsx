@@ -1,8 +1,8 @@
 'use client';
 
 import Link from "next/link";
-import { cn } from "../app/lib/utils";
-import { SummaryMenu } from "../app/lib/summary-menu";
+import { SummaryMenu } from "../lib/summary-menu";
+import { cn } from "@/lib/utils";
 
 
 export default function HorizontalSummaryMenu({ activePath }: { activePath: string }) {

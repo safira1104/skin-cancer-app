@@ -7,7 +7,7 @@ import {
   FileSearch,
   LayoutDashboard,
 } from "lucide-react";
-import { SummaryMenu } from "../lib/summary-menu";
+import { SummaryMenu } from "../../lib/summary-menu";
 
 
 

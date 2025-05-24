@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
-import { SidebarMenu } from '../app/lib/sidebar-menu';
+import { SidebarMenu } from '../lib/sidebar-menu';
 
 
 export default function Sidebar() {
