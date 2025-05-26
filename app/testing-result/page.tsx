@@ -1,6 +1,6 @@
 "use client";
 
-import TestingCard from "./testing-card";
+import TestingCard from "../../components/testing-card";
 
 const results = [
   { filename: "1", predicted_label: "Melanoma", true_label: "Nevus", correct: false },
