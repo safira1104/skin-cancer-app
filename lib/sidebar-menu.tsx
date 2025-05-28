@@ -16,12 +16,12 @@ export const SidebarMenu = [
   },
   {
     label: "Prediction",
-    path: "/predict",
+    path: "/prediction",
     icon: Activity,
   },
   {
     label: "Data Distribution",
-    path: "/distribution",
+    path: "/data-distribution",
     icon: BarChart3,
   },
   {
