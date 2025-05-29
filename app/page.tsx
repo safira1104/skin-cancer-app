@@ -2,7 +2,7 @@
 
 export default function HomePage() {
   return (
-    <div className="m-7">
+    <div className="px-8 py-7 max-w-6xl mx-auto overflow-hidden">
       <div
         className="rounded-xl shadow-md p-7 bg-cover bg-center relative"
         style={{
