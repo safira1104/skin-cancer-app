@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import DragAndDropUpload from '@/components/DragAndDropUpload';
+import DragAndDropUpload from '@/components/drag-and-drop-apload';
 
 export default function Prediction() {
   const [file, setFile] = useState<File | null>(null);

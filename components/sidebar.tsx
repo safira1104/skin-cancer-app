@@ -3,9 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu } from 'lucide-react';
+import { Menu, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SidebarMenu } from '../lib/sidebar-menu';
-
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,17 +12,22 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-screen bg-white border-r transition-all duration-300 ${
+      className={`h-screen bg-white border-r transition-all duration-300 shadow-md overflow-hidden ${
         isOpen ? 'w-64' : 'w-16'
-      } overflow-hidden shadow-md`}
+      }`}
     >
-      <div className="flex items-center justify-center px-4 py-4">
-        <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700">
-          <Menu />
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 py-4">
+        {isOpen && <span className="text-lg font-bold">Menu</span>}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-gray-700 cursor-pointer"
+        >
+          {isOpen ? <ChevronLeft className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
         </button>
-        {isOpen && <span className="ml-3 text-lg font-bold">Menu</span>}
       </div>
 
+      {/* Menu Items */}
       <nav className="flex flex-col">
         {SidebarMenu.map((item, index) => (
           <div key={index} className="border-b last:border-none">
@@ -37,7 +41,7 @@ export default function Sidebar() {
               {isOpen && <span className="ml-3">{item.label}</span>}
             </Link>
 
-            {isOpen && item.children && (
+            {isOpen && Array.isArray(item.children) && (
               <div className="ml-8 space-y-1 pb-2">
                 {item.children.map((child, idx) => (
                   <Link

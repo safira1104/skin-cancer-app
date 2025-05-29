@@ -1,7 +1,40 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
+type SummaryItem = {
+  label: string;
+  count: number;
+};
+
 export default function Summary7Class() {
+  const [summaryData, setSummaryData] = useState<SummaryItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/summary-7class')
+      .then((res) => res.json())
+      .then((data) => {
+        const entries = Object.entries(data).map(([label, count]) => ({
+          label,
+          count: Number(count),
+        }));
+        setSummaryData(entries);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Gagal fetch data:', err);
+        setLoading(false);
+      });
+  }, []);
+
+
+
+  const totalCount = summaryData.reduce((sum, item) => sum + item.count, 0);
+
   return (
-    <div className="flex justify-center items-center min-h-screen"> {/* bg putih DIHAPUS */}
-      <div className="p-10 rounded-xl shadow-lg max-w-full w-full flex justify bg-white"> {/* bg putih HANYA di tabel */}
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="p-10 rounded-xl shadow-lg max-w-full w-full flex justify bg-white">
         <table className="w-full text-center border-collapse">
           <thead>
             <tr>
@@ -10,38 +43,24 @@ export default function Summary7Class() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">Benign keratosis like lesions</td>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">1089</td>
-            </tr>
-            <tr>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">Basal cell carcinoma</td>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">514</td>
-            </tr>
-            <tr>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">Actinic keratoses</td>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">327</td>
-            </tr>
-            <tr>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">Vascular lesions</td>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">142</td>
-            </tr>
-            <tr>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">Dermatofibroma</td>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">115</td>
-            </tr>
-            <tr>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">Melanoma</td>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">1113</td>
-            </tr>
-            <tr>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">Melanocytic nevus</td>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700">6705</td>
-            </tr>
-            <tr>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700 font-bold">Total</td>
-              <td className="border border-pink-500 px-6 py-3 text-pink-700 font-bold">10015</td>
-            </tr>
+            {loading ? (
+              <tr>
+                <td colSpan={2} className="py-6 text-pink-700">Loading...</td>
+              </tr>
+            ) : (
+              <>
+                {summaryData.map((item, index) => (
+                  <tr key={index}>
+                    <td className="border border-pink-500 px-6 py-3 text-pink-700">{item.label}</td>
+                    <td className="border border-pink-500 px-6 py-3 text-pink-700">{item.count}</td>
+                  </tr>
+                ))}
+                <tr>
+                  <td className="border border-pink-500 px-6 py-3 text-pink-700 font-bold">Total</td>
+                  <td className="border border-pink-500 px-6 py-3 text-pink-700 font-bold">{totalCount}</td>
+                </tr>
+              </>
+            )}
           </tbody>
         </table>
       </div>
