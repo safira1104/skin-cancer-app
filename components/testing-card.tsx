@@ -21,8 +21,8 @@ export default function TestingCard({
   status,
 }: TestingCardProps) {
   return (
-    <div className="bg-white p-4 rounded-xl shadow-md w-64 h-80">
-      <div className="w-full h-40 bg-gray-100 rounded-md mb-4 overflow-hidden flex items-center justify-center">
+    <div className="bg-white p-4 rounded-xl shadow-md w-64 h-auto">
+      <div className="w-full h-40 aspect-square bg-gray-100 rounded-md mb-4 overflow-hidden flex items-center justify-center">
         <img
           src={image_url}
           alt="hasil prediksi"

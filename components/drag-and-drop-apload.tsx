@@ -38,34 +38,34 @@ export default function DragAndDropUpload({ file, setFile, dragOver, setDragOver
       }}
       onDragLeave={() => setDragOver(false)}
       className={`transition-colors bg-white border-2 border-dashed rounded-2xl p-10 shadow-xl ${
-        dragOver ? 'border-purple-400' : 'border-[#d1cfff]'
+        dragOver ? 'border-pink-400' : 'border-[#ffcfea]'
       }`}
     >
       {file ? (
-        <div className="flex flex-col items-center space-y-4">
+        <div className="flex flex-col items-center space-y-4  p-6 rounded-xl  ">
           <img
             src={URL.createObjectURL(file)}
             alt="preview"
-            className="w-24 h-24 object-cover rounded-md shadow"
+            className="w-28 h-28 object-cover bg-pink-100 rounded-lg shadow"
           />
-          <p className="text-gray-700 font-medium">{file.name}</p>
-          <p className="text-sm text-gray-500">
+          <p className="text-pink-800 font-semibold">{file.name}</p>
+          <p className="text-sm text-pink-500">
             {(file.size / (1024 * 1024)).toFixed(2)} MB • {file.type.toUpperCase()}
           </p>
-          <button onClick={removeFile} className="text-pink-500 hover:text-pink-700">
-            <X size={24} />
+          <button onClick={removeFile} className="text-pink-600 hover:text-pink-800 transition">
+            <X size={26} />
           </button>
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center space-y-4">
-          <UploadCloud size={48} className="text-purple-500" />
+          <UploadCloud size={48} className="text-pink-400" />
           <p className="text-lg font-semibold text-gray-700">
-            Drag & drop <span className="text-purple-600">images, videos</span>, or any file
+            Drag & drop <span className="text-pink-500">images, videos</span>, or any file
           </p>
           <p className="text-sm text-gray-500">
             or{' '}
             <button
-              className="text-purple-500 underline"
+              className="text-pink-400 underline"
               onClick={() => fileInputRef.current?.click()}
             >
               browse files

@@ -28,4 +28,9 @@ export const SummaryMenu = [
     path: "/summary/split-augmented-data",
     icon: Layers,
   },
+  {
+    label: "Classification Report",
+    path: "/summary/classification-report",
+    icon: Layers,
+  },
 ];

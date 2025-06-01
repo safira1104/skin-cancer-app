@@ -3,8 +3,6 @@
 export default function HomePage() {
   return (
     <div className="px-8 py-7 max-w-6xl mx-auto overflow-hidden relative">
-      {/* Layer background tambahan seperti kabut pink */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-tr from-pink-100 via-white to-pink-200 opacity-50 blur-lg"></div>
 
       <div
         className="rounded-xl shadow-md p-7 bg-cover bg-center relative z-10"

@@ -15,21 +15,6 @@ export const SidebarMenu = [
     icon: Home,
   },
   {
-    label: "Prediction",
-    path: "/prediction",
-    icon: Activity,
-  },
-  {
-    label: "Data Distribution",
-    path: "/data-distribution",
-    icon: BarChart3,
-  },
-  {
-    label: "Testing Result",
-    path: "/testing-result",
-    icon: FileSearch,
-  },
-  {
     label: "Summary",
     icon: LayoutDashboard,
     path: "/summary", // bisa jadi default halaman summary
@@ -59,6 +44,27 @@ export const SidebarMenu = [
         path: "/summary/split-augmented-data",
         icon: Layers,
       },
+      {
+        label: "Classification Report",
+        path: "/summary/clasification-report",
+        icon: Layers,
+      },
     ],
   },
+  {
+    label: "Data Distribution",
+    path: "/data-distribution",
+    icon: BarChart3,
+  },
+  {
+    label: "Testing Result",
+    path: "/testing-result",
+    icon: FileSearch,
+  },
+  {
+    label: "Prediction",
+    path: "/prediction",
+    icon: Activity,
+  },
+  
 ];
