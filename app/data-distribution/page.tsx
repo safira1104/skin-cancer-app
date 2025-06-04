@@ -33,11 +33,13 @@ const ChartCard = ({ title, children, description }: ChartCardProps) => (
 type GenderItem = { name: string; value: number }
 type AgeItem = { age: string; value: number }
 type LocalizationItem = { area: string; value: number }
+type DiagnosisItem = { name: string; value: number }
 
 export default function DataDistributionPage() {
   const [genderData, setGenderData] = useState<GenderItem[]>([])
   const [ageData, setAgeData] = useState<AgeItem[]>([])
   const [localizationData, setLocalizationData] = useState<LocalizationItem[]>([])
+  const [diagnosisData, setDiagnosisData] = useState<DiagnosisItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -62,6 +64,11 @@ export default function DataDistributionPage() {
 
         setLocalizationData(Object.entries(data.localization ?? {}).map(([key, value]) => ({
           area: key,
+          value: Number(value)
+        })))
+
+        setDiagnosisData(Object.entries(data.diagnosis ?? {}).map(([key, value]) => ({
+          name: key.toUpperCase(),
           value: Number(value)
         })))
 
@@ -122,7 +129,7 @@ export default function DataDistributionPage() {
         </ChartCard>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-10 mb-10">
         <ChartCard
           title="Age Distribution"
           description="Grafik ini menggambarkan distribusi kasus kanker kulit berdasarkan kelompok usia."
@@ -147,6 +154,22 @@ export default function DataDistributionPage() {
               <YAxis />
               <Tooltip />
               <Bar dataKey="value" fill="#673AB7" />
+            </BarChart>
+          </ResponsiveContainer>
+        </ChartCard>
+      </div>
+
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-10 mb-10">
+        <ChartCard
+          title="Diagnosis Distribution"
+          description="Diagram ini menunjukkan jumlah kasus berdasarkan jenis diagnosis kanker kulit."
+        >
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={diagnosisData}>
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="value" fill="#FFC107" />
             </BarChart>
           </ResponsiveContainer>
         </ChartCard>
