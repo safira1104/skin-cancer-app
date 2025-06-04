@@ -12,7 +12,8 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-screen bg-white border-r transition-all duration-300 shadow-md overflow-hidden ${
+      // ✅ Perbaikan: className harus dalam string literal atau template string
+      className={`fixed top-0 left-0 h-screen bg-white border-r transition-all duration-300 shadow-md overflow-hidden ${
         isOpen ? 'w-64' : 'w-16'
       }`}
     >
@@ -33,6 +34,7 @@ export default function Sidebar() {
           <div key={index} className="border-b last:border-none">
             <Link
               href={item.path}
+              // ✅ Perbaikan: className harus dalam template literal
               className={`flex items-center px-4 py-3 text-gray-800 hover:bg-gray-100 transition-all ${
                 pathname === item.path ? 'bg-gray-100 font-semibold' : ''
               }`}
@@ -47,6 +49,7 @@ export default function Sidebar() {
                   <Link
                     href={child.path}
                     key={idx}
+                    // ✅ Perbaikan: className harus dalam template literal
                     className={`flex items-center px-2 py-1 text-sm text-gray-600 hover:bg-gray-100 rounded-md ${
                       pathname === child.path ? 'bg-gray-100 font-medium' : ''
                     }`}

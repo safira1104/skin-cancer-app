@@ -1,9 +1,8 @@
-'use client'
+'use client';
 
 export default function HomePage() {
   return (
     <div className="px-8 py-7 max-w-6xl mx-auto overflow-hidden relative">
-
       <div
         className="rounded-xl shadow-md p-7 bg-cover bg-center relative z-10"
         style={{
@@ -47,5 +46,5 @@ export default function HomePage() {
         </p>
       </div>
     </div>
-  )
+  );
 }
